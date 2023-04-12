@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./components/Dashboard";
+import { Outlet } from "react-router-dom";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex">
+      <div className="basis-[12%] h-[100vh]">
+        <Sidebar />
+      </div>
+      <div className="basis-[88%] border h-[100vh] overflow-scroll">
+        <Dashboard />
+        <div>
+          <Outlet></Outlet>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
